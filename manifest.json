@@ -3,10 +3,6 @@
   "version": "1.0",
   "description": "Extension to change header color of the AWS Management Console based on the active region.",
   "permissions": ["activeTab", "declarativeContent", "storage"],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
   "content_scripts": [
     {
       "matches": ["https://*.aws.amazon.com/*"],
