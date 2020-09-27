@@ -1,0 +1,6 @@
+{
+  "name": "AWS Region Header Color Change",
+  "version": "1.0",
+  "description": "Extension to change header color of the AWS Management Console based on the active region.",
+  "manifest_version": 2
+}
