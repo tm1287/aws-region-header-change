@@ -48,3 +48,4 @@ chrome.storage.local.set({ region: currentRegion });
  * Set the background color of the header based on the predefined styles
  */
 headerShelf.style.backgroundColor = regions[currentRegion].fontColor;
+chrome.storage.local.set({ color: regions[currentRegion].fontColor });
