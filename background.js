@@ -3,7 +3,7 @@ chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
     {
       conditions: [
         new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: { hostEquals: "https://*.aws.amazon.com/*" },
+          pageUrl: { hostContains: "console.aws.amazon.com" },
         }),
       ],
       actions: [new chrome.declarativeContent.ShowPageAction()],

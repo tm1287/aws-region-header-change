@@ -42,6 +42,7 @@ let menuButton = regionMenuParent.querySelector(
  */
 let currentRegion = menuButton.innerHTML.match(/(?<=>)(.*?)(?=<)/g)[0];
 console.log(currentRegion);
+chrome.storage.local.set({ region: currentRegion });
 
 /**
  * Set the background color of the header based on the predefined styles

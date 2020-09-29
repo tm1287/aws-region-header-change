@@ -1,15 +1,5 @@
-let changeStatus = document.getElementById("changeStatus");
+let region = document.getElementById("region");
 
-chrome.storage.sync.get("status", function (data) {
-  changeStatus.style.backgroundColor = "#3aa757";
-  changeStatus.setAttribute("value", "asdasd");
+chrome.storage.local.get("region", function (data) {
+  region.textContent = data.region;
 });
-
-changeStatus.onclick = function (element) {
-  let status = element.target.value;
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.tabs.executeScript(tabs[0].id, {
-      code: 'document.body.style.backgroundColor = "' + "#3aa757" + '";',
-    });
-  });
-};
