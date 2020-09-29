@@ -1,5 +1,3 @@
-//Region colormappings from https://github.com/JB4GDI/awsazcolorchromeextension
-
 /**
  * Gets the nav container from the dom and isolates the header shelf containing the css styles
  */

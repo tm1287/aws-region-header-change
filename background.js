@@ -1,3 +1,4 @@
+//Region colormappings from https://github.com/JB4GDI/awsazcolorchromeextension
 const defaultRegionColors = {
   Global: { fontColor: "#ffffff", backgroundColor: "#232f3e" },
   "N. Virginia": { fontColor: "#00297b", backgroundColor: "#97c8f0" },
