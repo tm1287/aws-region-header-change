@@ -20,11 +20,14 @@ const defaultRegionColors = {
   "São Paulo": { fontColor: "#294292", backgroundColor: "#212125" },
 };
 
+// On Extension Install
 chrome.runtime.onInstalled.addListener(function () {
+  // Store active set of region colors
   chrome.storage.local.set({ regionColors: defaultRegionColors }, function () {
     console.log("Colors Stored");
   });
 
+  // Store constant default set of region colors
   chrome.storage.local.set(
     { defaultRegionColors: defaultRegionColors },
     function () {
@@ -32,6 +35,7 @@ chrome.runtime.onInstalled.addListener(function () {
     }
   );
 
+  // Only show the popup when we are on the AWS Console page
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
     chrome.declarativeContent.onPageChanged.addRules([
       {

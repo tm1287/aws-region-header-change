@@ -2,7 +2,11 @@ let table = document.getElementById("color-table");
 let form = document.getElementById("color-form");
 let resetDefaultButton = document.getElementById("reset-default-button");
 
-function updateColor(currentColors) {
+/**
+ * Update the color cell (If valid or not).
+ * Save colors to storage as well
+ */
+function updateColor() {
   let colorCell = document.getElementById(this.name + "-color");
   let newHex = validateHex(this.value);
   console.log(newHex);
@@ -12,6 +16,10 @@ function updateColor(currentColors) {
   validateForm();
 }
 
+/**
+ * Return standardized Hex Code if valid.
+ * @param {Hex code from input field} hexCode
+ */
 function validateHex(hexCode) {
   const hashRegEx = RegExp("^#[0-9A-Fa-f]{6}$");
   const noHashRegEx = RegExp("^[0-9A-Fa-f]{6}$");
@@ -24,6 +32,10 @@ function validateHex(hexCode) {
   }
 }
 
+/**
+ * Checks if all input fields contains valid hex codes.
+ * Then saves new colors to storage
+ */
 function validateForm() {
   chrome.storage.local.get("regionColors", function (data) {
     let invalidCount = 0;
@@ -55,6 +67,9 @@ function validateForm() {
   });
 }
 
+/**
+ * Resets options and input fields to default colors.
+ */
 function resetDefaultForm() {
   chrome.storage.local.get("defaultRegionColors", function (data) {
     let defaultColors = data.defaultRegionColors;
@@ -74,6 +89,9 @@ function resetDefaultForm() {
   validateForm();
 }
 
+/**
+ * Fully resets options and input fields
+ */
 function resetForm() {
   chrome.storage.local.get("regionColors", function (data) {
     let regionColors = data.regionColors;
@@ -92,10 +110,12 @@ function resetForm() {
   validateForm();
 }
 
+// Bind elements to functions
 form.onsubmit = validateForm;
 form.onreset = resetForm;
 resetDefaultButton.onclick = resetDefaultForm;
 
+// Populate html with table, labels, and input fields from active region colors
 chrome.storage.local.get("regionColors", function (data) {
   let regionColors = data.regionColors;
   for (var key in regionColors) {
