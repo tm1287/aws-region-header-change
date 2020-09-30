@@ -1,85 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      body {
-        min-width: 150px;
-        max-width: 100%;
-        position: relative;
-        vertical-align: middle;
-      }
-
-      #color-table {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        min-width: 150px;
-        max-width: 100%;
-      }
-
-      #color-table td,
-      #color-table th {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-
-      #color-table tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-
-      #color-table tr:hover {
-        background-color: #ddd;
-      }
-
-      #color-table th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: gray;
-        color: white;
-      }
-
-      .save-button {
-        background-color: gray;
-        border: none;
-        color: white;
-        padding: 10px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-      }
-
-      .reset-button {
-        background-color: red;
-        border: none;
-        color: white;
-        padding: 10px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-      }
-    </style>
+    <link rel="stylesheet" href="options.css" />
   </head>
   <body>
-    <section id="hexForm">
-      <form id="color-form" action="javascript:">
-        <table id="color-table">
-          <tr>
-            <th>Region</th>
-            <th>Hex Color Code</th>
-            <th>Preview</th>
-          </tr>
-        </table>
-        <br />
+    <div style="display: flex">
+      <section id="hexForm">
+        <form id="color-form" action="javascript:">
+          <table id="color-table">
+            <tr>
+              <th>Region</th>
+              <th>Hex Color Code</th>
+              <th>Preview</th>
+            </tr>
+          </table>
+          <br />
+        </form>
         <div style="text-align: center">
           <button type="reset" class="reset-button">Clear</button>
           <button id="reset-default-button" type="button" class="reset-button">
             Reset To Default
           </button>
         </div>
-      </form>
-    </section>
+      </section>
+    </div>
   </body>
   <script src="options.js"></script>
 </html>
