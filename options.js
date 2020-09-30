@@ -1,5 +1,6 @@
 let table = document.getElementById("color-table");
 let form = document.getElementById("color-form");
+let resetDefaultButton = document.getElementById("reset-default-button");
 
 function updateColor(currentColors) {
   let colorCell = document.getElementById(this.name + "-color");
@@ -53,7 +54,44 @@ function validateForm() {
   });
 }
 
+function resetDefaultForm() {
+  chrome.storage.local.get("defaultRegionColors", function (data) {
+    let defaultColors = data.defaultRegionColors;
+    for (var key in defaultColors) {
+      if (defaultColors.hasOwnProperty(key)) {
+        let inputCell = document.getElementById(key + "-input");
+        let colorCell = document.getElementById(key + "-color");
+
+        inputCell.value = defaultColors[key].fontColor.toUpperCase();
+        inputCell.setAttribute("valid", true);
+
+        colorCell.style.backgroundColor = defaultColors[key].fontColor;
+        colorCell.innerHTML = "";
+      }
+    }
+  });
+}
+
+function resetForm() {
+  chrome.storage.local.get("regionColors", function (data) {
+    let regionColors = data.regionColors;
+    for (var key in regionColors) {
+      if (regionColors.hasOwnProperty(key)) {
+        let inputCell = document.getElementById(key + "-input");
+        let colorCell = document.getElementById(key + "-color");
+
+        inputCell.setAttribute("valid", true);
+
+        colorCell.style.backgroundColor = "";
+        colorCell.innerHTML = "";
+      }
+    }
+  });
+}
+
 form.onsubmit = validateForm;
+form.onreset = resetForm;
+resetDefaultButton.onclick = resetDefaultForm;
 
 chrome.storage.local.get("regionColors", function (data) {
   let regionColors = data.regionColors;

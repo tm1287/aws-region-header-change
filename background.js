@@ -22,8 +22,15 @@ const defaultRegionColors = {
 
 chrome.runtime.onInstalled.addListener(function () {
   chrome.storage.local.set({ regionColors: defaultRegionColors }, function () {
-    console.log("Default Colors Stored");
+    console.log("Colors Stored");
   });
+
+  chrome.storage.local.set(
+    { defaultRegionColors: defaultRegionColors },
+    function () {
+      console.log("Default Colors Stored");
+    }
+  );
 
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
     chrome.declarativeContent.onPageChanged.addRules([

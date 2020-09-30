@@ -38,8 +38,19 @@
         color: white;
       }
 
-      .button {
+      .save-button {
         background-color: gray;
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      .reset-button {
+        background-color: red;
         border: none;
         color: white;
         padding: 10px 25px;
@@ -61,7 +72,11 @@
           </tr>
         </table>
         <br />
-        <button type="submit" class="button">Save</button>
+        <button type="submit" class="save-button">Save</button>
+        <button type="reset" class="reset-button">Clear</button>
+        <button id="reset-default-button" type="button" class="reset-button">
+          Reset To Default
+        </button>
       </form>
     </section>
   </body>
