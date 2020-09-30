@@ -7,7 +7,7 @@ function updateColor(currentColors) {
   let newHex = validateHex(this.value);
   console.log(newHex);
   colorCell.style.backgroundColor = newHex ? newHex : "#FFFFFF";
-  colorCell.innerHTML = newHex ? "" : "INVALID HEX CODE";
+  colorCell.innerHTML = newHex ? "" : "INVALID";
   this.setAttribute("valid", newHex ? true : false);
   validateForm();
 }
