@@ -9,6 +9,7 @@ function updateColor(currentColors) {
   colorCell.style.backgroundColor = newHex ? newHex : "#FFFFFF";
   colorCell.innerHTML = newHex ? "" : "INVALID HEX CODE";
   this.setAttribute("valid", newHex ? true : false);
+  validateForm();
 }
 
 function validateHex(hexCode) {
@@ -38,7 +39,7 @@ function validateForm() {
       }
     }
     if (invalidCount >= 1) {
-      alert("Ensure all Hex Codes are valid");
+      console.log("Ensure all Hex Codes are valid");
     } else {
       //Write new colors to storage
       for (var key in regionColors) {
@@ -70,6 +71,7 @@ function resetDefaultForm() {
       }
     }
   });
+  validateForm();
 }
 
 function resetForm() {
@@ -87,6 +89,7 @@ function resetForm() {
       }
     }
   });
+  validateForm();
 }
 
 form.onsubmit = validateForm;
