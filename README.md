@@ -4,6 +4,11 @@ This Chrome extension will change the header for the AWS management console depe
 
 # How to Install
 
+## Through the Chrome Web Store
+- Navigate [here](https://chrome.google.com/webstore/detail/aws-region-color-editor/mmkkgfbonijgblhekbjimlcmnfllcaoc).
+- Click "Add to Chrome" and that's it!
+
+## Manually
 - Clone this repository to the directory of your choice
 - Navigate to `chrome://extensions`
 - In the top right, click load unpacked, and select the `aws-region-header-change` folder.
